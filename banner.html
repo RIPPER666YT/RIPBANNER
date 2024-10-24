@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Баннер Steam Новости</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            background-color: black;
+        }
+        .banner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .image {
+            margin-right: 20px;
+        }
+        .text {
+            color: red;
+            font-size: 36px;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 20px red; /* Эффект свечения */
+            animation: glow 1.5s ease-in-out infinite alternate; /* Плавная анимация */
+        }
+
+        @keyframes glow {
+0% {
+                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+                opacity: 1;
+            }
+100% {
+                text-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img class="image" src="https://i.postimg.cc/0jkfrKPj/qr-code.png" alt="Изображение" width="150">
+        <div class="text" id="banner-text">steam новости</div>
+    </div>
+
+    <script>
+        const texts = [
+            'ТГК steam новости',
+            'подпишись на ТГК steam новости',
+            'скидки, раздачи и другое',
+            'не пропусти скидки в steam'
+        ];
+        
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % texts.length; // Переход к следующему тексту
+            document.getElementById('banner-text').innerText = texts[currentIndex];
+        }, 60000); // Меняет текст каждые 60 секунд
+    </script>
+</body>
+</html>
